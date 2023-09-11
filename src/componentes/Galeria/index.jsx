@@ -14,7 +14,7 @@ const StyledSection = styled.section`
   flex-grow: 1;
 `;
 
-export const Galeria = ({ fotos = [], aoFotoSelecionada }) => {
+export const Galeria = ({ fotos = [], aoFotoSelecionada, aoAlternarFavorito }) => {
   return (
     <>
       <Tags />
@@ -28,6 +28,7 @@ export const Galeria = ({ fotos = [], aoFotoSelecionada }) => {
               <Imagem
                 key={foto.id}
                 foto={foto}
+                aoAlternarFavorito={aoAlternarFavorito}
                 aoZoomSolicitado={aoFotoSelecionada}
               />
             ))}

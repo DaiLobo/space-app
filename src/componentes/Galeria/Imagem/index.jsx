@@ -40,7 +40,7 @@ const StyledFigure = styled.figure`
   }
 `;
 
-export const Imagem = ({ foto, expandida = false, aoZoomSolicitado }) => {
+export const Imagem = ({ foto, expandida = false, aoZoomSolicitado, aoAlternarFavorito }) => {
   return (
     <StyledFigure>
       <img
@@ -56,6 +56,7 @@ export const Imagem = ({ foto, expandida = false, aoZoomSolicitado }) => {
 
           <div>
             <button
+            onClick={() => aoAlternarFavorito(foto)}
               style={{
                 border: "none",
                 cursor: "pointer",
