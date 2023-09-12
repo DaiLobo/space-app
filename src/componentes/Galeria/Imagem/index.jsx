@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
 
 const StyledFigure = styled.figure`
   flex-direction: column;
@@ -40,7 +40,16 @@ const StyledFigure = styled.figure`
   }
 `;
 
-export const Imagem = ({ foto, expandida = false, aoZoomSolicitado, aoAlternarFavorito }) => {
+export const Imagem = ({
+  foto,
+  expandida = false,
+  aoZoomSolicitado,
+  aoAlternarFavorito,
+}) => {
+  const iconeFavorito = foto.favorita
+    ? "/icones/favorito-ativo.png"
+    : "/icones/favorito.png";
+
   return (
     <StyledFigure>
       <img
@@ -56,25 +65,29 @@ export const Imagem = ({ foto, expandida = false, aoZoomSolicitado, aoAlternarFa
 
           <div>
             <button
-            onClick={() => aoAlternarFavorito(foto)}
+              onClick={() => aoAlternarFavorito(foto)}
               style={{
                 border: "none",
                 cursor: "pointer",
                 background: "transparent",
               }}
             >
-              <img src="/icones/favorito-ativo.png" alt="favorito" />
+              <img src={iconeFavorito} alt="favorito" />
             </button>
-            <button
-              onClick={() => aoZoomSolicitado(foto)}
-              style={{
-                border: "none",
-                cursor: "pointer",
-                background: "transparent",
-              }}
-            >
-              <img src="/icones/expandir.png" alt="favorito" />
-            </button>
+
+            {!expandida && (
+              <button
+                onClick={() => aoZoomSolicitado(foto)}
+                aria-hidden={expandida}
+                style={{
+                  border: "none",
+                  cursor: "pointer",
+                  background: "transparent",
+                }}
+              >
+                <img src="/icones/expandir.png" alt="favorito" />
+              </button>
+            )}
           </div>
         </footer>
       </figcaption>

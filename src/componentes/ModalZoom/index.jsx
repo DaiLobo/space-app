@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
 
-import { Imagem } from '../Galeria/Imagem';
+import { Imagem } from "../Galeria/Imagem";
 
 const OverLay = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
@@ -21,28 +21,37 @@ const StyledDialog = styled.dialog`
   top: 294px;
   padding: 0;
   border: 0;
-  
+
   form {
     button {
+      background-color: transparent;
       position: relative;
-      top: 20px;
-      right: 60px;
+      cursor: pointer;
+      border: none;
+      right: 86px;
+      top: 28px;
     }
   }
 `;
 
-export const ModalZoom = ({ foto }) => {
+export const ModalZoom = ({ foto, aoFechar, aoAlternarFavorito }) => {
   return (
     <>
       {foto && (
         <>
           <OverLay />
 
-          <StyledDialog open={!!foto}>
-            <Imagem foto={foto} expandida={true} />
+          <StyledDialog open={!!foto}  onClose={aoFechar}>
+            <Imagem
+              foto={foto}
+              expandida={true}
+              aoAlternarFavorito={aoAlternarFavorito}
+            />
 
             <form method="dialog">
-              <button>ok</button>
+              <button formMethod="dialog">
+                <img src="/icones/fechar.png" alt="favorito" />
+              </button>
             </form>
           </StyledDialog>
         </>

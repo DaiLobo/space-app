@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
 
-import { Banner } from './componentes/Banner';
-import { BarraLateral } from './componentes/BarraLateral';
-import EstilosGlobais from './componentes/EstilosGlobais';
-import { Galeria } from './componentes/Galeria';
-import { Header } from './componentes/Header';
-import { ModalZoom } from './componentes/ModalZoom';
-import fotos from './fotos.json';
+import { Banner } from "./componentes/Banner";
+import { BarraLateral } from "./componentes/BarraLateral";
+import EstilosGlobais from "./componentes/EstilosGlobais";
+import { Galeria } from "./componentes/Galeria";
+import { Header } from "./componentes/Header";
+import { ModalZoom } from "./componentes/ModalZoom";
+import fotos from "./fotos.json";
+import { Footer } from "./componentes/Footer";
 
 const FundoGradiente = styled.div`
   background: linear-gradient(
@@ -43,6 +44,25 @@ function App() {
   const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos);
   const [fotoSelecionada, setFotoSelecionada] = useState(null);
 
+  const aoAlternarFavorito = (foto) => {
+    if (foto.id === fotoSelecionada?.id) {
+      setFotoSelecionada({
+        ...fotoSelecionada,
+        favorita: !fotoSelecionada.favorita,
+      });
+    }
+
+    setFotosDaGaleria(
+      fotosDaGaleria?.map((fotoGaleria) => {
+        return {
+          ...fotoGaleria,
+          favorita:
+            fotoGaleria.id === foto.id ? !foto.favorita : fotoGaleria.favorita,
+        };
+      })
+    );
+  };
+
   return (
     <FundoGradiente>
       <EstilosGlobais />
@@ -59,14 +79,20 @@ function App() {
             />
 
             <Galeria
+              aoAlternarFavorito={aoAlternarFavorito}
               aoFotoSelecionada={(foto) => setFotoSelecionada(foto)}
               fotos={fotosDaGaleria}
             />
           </GalleryContainer>
         </MainContainer>
       </StyledAppContainer>
+      <Footer />
 
-      <ModalZoom foto={fotoSelecionada} />
+      <ModalZoom
+        foto={fotoSelecionada}
+        aoFechar={() => setFotoSelecionada(null)}
+        aoAlternarFavorito={aoAlternarFavorito}
+      />
     </FundoGradiente>
   );
 }
