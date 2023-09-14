@@ -1,6 +1,7 @@
-import { styled } from 'styled-components';
+/* eslint-disable react/prop-types */
+import { styled } from "styled-components";
 
-import { CampoTexto } from '../CampoTexto';
+import { CampoTexto } from "../CampoTexto";
 
 const StyledHeader = styled.header`
   padding: 60px 0;
@@ -9,23 +10,52 @@ const StyledHeader = styled.header`
 
   img {
     max-width: 212px;
+
+    @media (max-width: 1470px) {
+      margin-left: 20px;
+    }
+
+    /* @media (max-width: 680px) {
+      margin-right: 80px;
+    } */
   }
+
+  @media (max-width: 1470px) {
+    margin-left: 20px;
+  }
+
+  /* @media (max-width: 680px) {
+    width: 100%;
+    justify-content: end;
+  } */
 `;
 
-export const Header = () => {
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+
+  /* @media (max-width: 680px) {
+    flex-direction: column;
+  } */
+`;
+
+export const Header = ({ value, setValue }) => {
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "baseline",
-        justifyContent: "space-between",
-      }}
-    >
+    <StyledContainer>
       <StyledHeader>
         <img src="imagens/logo.png" alt="Logo" />
       </StyledHeader>
-      <CampoTexto placeholder="O que você procura?" />
-    </div>
+      <CampoTexto
+        placeholder="O que você procura?"
+        value={value}
+        onChange={handleChange}
+      />
+    </StyledContainer>
   );
 };

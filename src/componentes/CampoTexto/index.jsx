@@ -1,10 +1,22 @@
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
 
-import search from './search.png';
+import search from "./search.png";
 
 const StyledContainer = styled.div`
   position: relative;
   display: inline-block;
+
+  @media (max-width: 1470px) {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  /* @media (max-width: 680px) {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100vw;
+  } */
 `;
 
 const StyledTextField = styled.input`
@@ -18,6 +30,7 @@ const StyledTextField = styled.input`
   line-height: 20px;
   font-weight: 400;
   font-size: 20px;
+  color: #d9d9d9;
   width: 400px;
   gap: 365px;
 
@@ -28,7 +41,16 @@ const StyledTextField = styled.input`
   &:focus-within {
     border: 2px solid #d9d9d9;
     outline: none;
-}
+  }
+
+  @media (max-width: 744px) {
+    width: 250px;
+  }
+
+  /* @media (max-width: 680px) {
+    justify-content: center;
+    width: 80vw;
+  } */
 `;
 
 const IconeLupa = styled.img`
@@ -38,6 +60,9 @@ const IconeLupa = styled.img`
   width: 38px;
   height: 38px;
 
+  /* @media (max-width: 680px) {
+    right: 80px;
+  } */
 `;
 
 export const CampoTexto = (props) => {

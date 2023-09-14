@@ -1,17 +1,30 @@
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
 
-import { ItemNavegacao } from './ItemNavegacao';
+import { ItemNavegacao } from "./ItemNavegacao";
 
 const StyledList = styled.ul`
   list-style: none;
   width: 212px;
   padding: 0;
   margin: 0;
+
+  @media (max-width: 1470px) {
+    /* margin-left: 20px; */
+  }
+`;
+
+const StyledContainerNav = styled.ul`
+  width: 212px;
+
+  /* @media (max-width: 680px) {
+    display: none;
+    width: 0px;
+  } */
 `;
 
 export const BarraLateral = () => {
   return (
-    <aside style={{ width: "212px" }}>
+    <StyledContainerNav style={{ width: "212px" }}>
       <nav>
         <StyledList>
           <ItemNavegacao
@@ -51,6 +64,6 @@ export const BarraLateral = () => {
           </ItemNavegacao>
         </StyledList>
       </nav>
-    </aside>
+    </StyledContainerNav>
   );
 };

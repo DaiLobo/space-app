@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
 
 const StyledBanner = styled.figure`
   background-image: ${(props) => `url(${props.$backgroundImage})`};
@@ -12,6 +12,21 @@ const StyledBanner = styled.figure`
   display: flex;
   flex-grow: 1;
   margin: 0;
+
+  @media (max-width: 1470px) {
+    margin-right: 20px;
+    margin-left: 20px;
+    max-width: 70%;
+  }
+
+  @media (max-width: 1068px) {
+    margin-right: 0px;
+    max-width: 60%;
+  }
+
+  /* @media (max-width: 680px) {
+    max-width: 100%;
+  } */
 `;
 
 const StyledTitle = styled.h1`

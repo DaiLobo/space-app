@@ -3,12 +3,18 @@ import { styled } from "styled-components";
 
 const StyledFigure = styled.figure`
   flex-direction: column;
+  max-width: 530px;
   background: #001634;
   border-radius: 20px;
   display: flex;
-  flex: 1;
+  /* flex: 1; */
+
+  @media (max-width: 1375px) {
+    flex: 1;
+  }
 
   img {
+    /* max-width: 100%; */
     /* border-radius: 20px 20px 0px 0px; */
   }
 
