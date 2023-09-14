@@ -2,8 +2,9 @@
 import { styled } from "styled-components";
 
 const StyledFigure = styled.figure`
+  width: ${(props) => (props.$expandida ? "100%" : "460px")};
   flex-direction: column;
-  max-width: 530px;
+  /* max-width: 550px; */
   background: #001634;
   border-radius: 20px;
   display: flex;
@@ -57,7 +58,7 @@ export const Imagem = ({
     : "/icones/favorito.png";
 
   return (
-    <StyledFigure>
+    <StyledFigure $expandida={expandida}>
       <img
         src={foto?.path}
         alt={foto?.titulo}
