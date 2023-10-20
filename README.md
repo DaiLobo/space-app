@@ -1,7 +1,6 @@
 <div align="center">
   <img src="https://github.com/DaiLobo/space-app/assets/47689708/366c57cd-379b-43e0-9393-45346208a27f" alt="Space-app">
 </div>
-<hr/>
 
 <h4 align="center"> 
 	🚧 Em construção: Acesse o projeto <a href="https://space-app-three.vercel.app">Space-app</a> 🚧
@@ -10,6 +9,8 @@
 ## 📝 Sobre
 
 O site "Galeria Espacial" é um projeto feito em React que oferece uma vasta coleção de imagens e fotografias relacionadas ao espaço. 
+
+<br>
 
 <div align="center">
   <img src="https://github.com/DaiLobo/space-app/assets/47689708/482afd3c-0085-46ea-896d-0bab0f8d77e3" alt="Tela">
@@ -20,6 +21,7 @@ O site "Galeria Espacial" é um projeto feito em React que oferece uma vasta col
 
 ## :bookmark: Índice
 
+<br>
 <p align="center">
  <a href="#-pré-requisitos">Pré-requisitos</a> •
  <a href="#-instalação">Instalação</a> • 
@@ -28,6 +30,7 @@ O site "Galeria Espacial" é um projeto feito em React que oferece uma vasta col
  <a href="#-tecnologias">Tecnologias</a> • 
  <a href="#%EF%B8%8F-autora">Autora</a>
 </p>
+<br>
 
 ## 📋&nbsp; Pré-requisitos
 
